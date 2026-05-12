@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="文章详情 - Hot-Site">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    
+    <title>文章详情 | Hot-Site</title>
+    
+    <!-- 样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- 字体预加载 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Markdown 渲染器 (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js" defer></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236366f1'/><rect x='10' y='10' width='12' height='12' rx='2' fill='white' transform='rotate(45 16 16)'/></svg>">
+</head>
+<body data-page="article">
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="返回首页">
+                <div class="logo-icon" aria-hidden="true"></div>
+                <span>Hot-Site</span>
+            </a>
+            
+            <button class="hamburger" aria-label="打开菜单" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" class="nav-link" role="menuitem">首页</a></li>
+                <li role="none"><a href="category.html?cat=tech" class="nav-link" role="menuitem">技术</a></li>
+                <li role="none"><a href="category.html?cat=ai" class="nav-link" role="menuitem">AI</a></li>
+                <li role="none"><a href="category.html?cat=game" class="nav-link" role="menuitem">游戏</a></li>
+                <li role="none"><a href="category.html?cat=music" class="nav-link" role="menuitem">音乐</a></li>
+                <li role="none"><a href="category.html?cat=art" class="nav-link" role="menuitem">艺术</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 文章详情 -->
+    <main class="article-detail">
+        <div class="container">
+            <!-- 返回链接 -->
+            <a href="javascript:history.back()" class="back-link" aria-label="返回上一页">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="19" y1="12" x2="5" y2="12"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                返回
+            </a>
+
+            <!-- 文章头部 -->
+            <header class="article-detail-header" id="article-header">
+                <!-- 通过 JS 动态填充 -->
+            </header>
+
+            <!-- 封面图 -->
+            <div class="article-detail-cover" id="article-cover">
+                <!-- 通过 JS 动态填充 -->
+            </div>
+
+            <!-- 文章正文 -->
+            <article class="article-content" id="article-content">
+                <!-- Markdown 内容将通过 JS 加载渲染 -->
+            </article>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon" aria-hidden="true"></div>
+                    <span>Hot-Site</span>
+                </div>
+                <p class="footer-desc">探索技术、AI、游戏、音乐与艺术的无限可能</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 20260508 Hot-Site. 基于静态站点技术构建</p>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="#">关于</a>
+                    <a href="#">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

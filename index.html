@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hot-Site - 探索技术、AI、游戏、音乐与艺术的无限可能。精选优质内容，涵盖前沿技术、人工智能、游戏开发、音乐创作与艺术创意。">
+    <meta name="keywords" content="技术博客,AI人工智能,游戏开发,音乐创作,艺术创意,前端开发">
+    <meta name="author" content="Hot-Site">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hot-Site - 首页">
+    <meta property="og:description" content="探索技术、AI、游戏、音乐与艺术的无限可能">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/static-site/">
+    
+    <title>Hot-Site | 首页</title>
+    
+    <!-- 样式 -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- 字体预加载 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236366f1'/><rect x='10' y='10' width='12' height='12' rx='2' fill='white' transform='rotate(45 16 16)'/></svg>">
+</head>
+<body data-page="home">
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="主导航">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="返回首页">
+                <div class="logo-icon" aria-hidden="true"></div>
+                <span>Hot-Site</span>
+            </a>
+            
+            <button class="hamburger" aria-label="打开菜单" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="index.html" class="nav-link active" role="menuitem">首页</a></li>
+                <li role="none"><a href="category.html?cat=tech" class="nav-link" role="menuitem">技术</a></li>
+                <li role="none"><a href="category.html?cat=ai" class="nav-link" role="menuitem">AI</a></li>
+                <li role="none"><a href="category.html?cat=game" class="nav-link" role="menuitem">游戏</a></li>
+                <li role="none"><a href="category.html?cat=music" class="nav-link" role="menuitem">音乐</a></li>
+                <li role="none"><a href="category.html?cat=art" class="nav-link" role="menuitem">艺术</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <header class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                探索<span class="gradient-text">无限可能</span>
+            </h1>
+            <p class="hero-subtitle">
+                在技术、AI、游戏、音乐与艺术的交汇处，发现新的灵感与洞见
+            </p>
+            <div class="hero-cta">
+                <a href="#featured" class="btn btn-primary">开始探索</a>
+                <a href="category.html?cat=all" class="btn btn-secondary">浏览全部</a>
+            </div>
+        </div>
+        <div class="hero-decoration" aria-hidden="true">
+            <div class="geo-shape geo-1"></div>
+            <div class="geo-shape geo-2"></div>
+            <div class="geo-shape geo-3"></div>
+        </div>
+    </header>
+
+    <!-- 精选内容 -->
+    <main>
+        <section id="featured" class="section" aria-labelledby="featured-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="featured-title" class="section-title">精选内容</h2>
+                    <p class="section-subtitle">最新发布的优质文章与灵感</p>
+                </header>
+                
+                <div class="article-grid" id="featured-grid" role="feed" aria-label="精选文章列表">
+                    <!-- 文章卡片将通过 JS 动态加载 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <section class="section categories-section" aria-labelledby="categories-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="categories-title" class="section-title">探索分类</h2>
+                    <p class="section-subtitle">深入你感兴趣的领域</p>
+                </header>
+                
+                <div class="category-grid" role="list">
+                    <a href="category.html?cat=tech" class="category-card category-tech" role="listitem">
+                        <div class="category-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>技术</h3>
+                        <p>前沿技术与开发实践</p>
+                        <div class="category-count" aria-label="2 篇文章">2 篇文章</div>
+                    </a>
+                    
+                    <a href="category.html?cat=ai" class="category-card category-ai" role="listitem">
+                        <div class="category-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h3>AI</h3>
+                        <p>人工智能与机器学习</p>
+                        <div class="category-count" aria-label="2 篇文章">2 篇文章</div>
+                    </a>
+                    
+                    <a href="category.html?cat=game" class="category-card category-game" role="listitem">
+                        <div class="category-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                                <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
+                            </svg>
+                        </div>
+                        <h3>游戏</h3>
+                        <p>游戏开发与设计</p>
+                        <div class="category-count" aria-label="2 篇文章">2 篇文章</div>
+                    </a>
+                    
+                    <a href="category.html?cat=music" class="category-card category-music" role="listitem">
+                        <div class="category-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                        </div>
+                        <h3>音乐</h3>
+                        <p>音乐创作与欣赏</p>
+                        <div class="category-count" aria-label="2 篇文章">2 篇文章</div>
+                    </a>
+                    
+                    <a href="category.html?cat=art" class="category-card category-art" role="listitem">
+                        <div class="category-icon" aria-hidden="true">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <h3>艺术</h3>
+                        <p>创意表达与美学探索</p>
+                        <div class="category-count" aria-label="2 篇文章">2 篇文章</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-icon" aria-hidden="true"></div>
+                    <span>Hot-Site</span>
+                </div>
+                <p class="footer-desc">探索技术、AI、游戏、音乐与艺术的无限可能</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Hot-Site. 基于静态站点技术构建</p>
+                <div class="footer-links">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="#">关于</a>
+                    <a href="#">联系</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
