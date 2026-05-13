@@ -565,6 +565,172 @@ function showError(message) {
   `;
 }
 
+// ==================== 搜索功能 ====================
+
+function initSearch() {
+  const searchBtn = document.querySelector('.nav-search-btn');
+  const searchModal = document.querySelector('.search-modal');
+  const searchInput = document.querySelector('.search-input');
+  const searchResults = document.getElementById('search-results');
+  
+  if (!searchBtn || !searchModal) return;
+  
+  let activeIndex = -1;
+  let currentResults = [];
+  
+  // 打开搜索
+  searchBtn.addEventListener('click', () => {
+    openSearch();
+  });
+  
+  // 快捷键 Ctrl/Cmd + K
+  document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+    
+    if (e.key === 'Escape') {
+      closeSearch();
+    }
+  });
+  
+  // 点击模态框外部关闭
+  searchModal.addEventListener('click', (e) => {
+    if (e.target === searchModal) {
+      closeSearch();
+    }
+  });
+  
+  function openSearch() {
+    searchModal.classList.add('active');
+    searchInput.focus();
+    searchInput.select();
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeSearch() {
+    searchModal.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+    activeIndex = -1;
+    currentResults = [];
+    document.body.style.overflow = '';
+  }
+  
+  // 搜索输入
+  searchInput.addEventListener('input', debounce((e) => {
+    const query = e.target.value.trim();
+    activeIndex = -1;
+    
+    if (query.length === 0) {
+      searchResults.innerHTML = '';
+      return;
+    }
+    
+    performSearch(query);
+  }, 300));
+  
+  // 键盘导航
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, currentResults.length - 1);
+      updateActiveResult();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, -1);
+      updateActiveResult();
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      const article = currentResults[activeIndex];
+      window.location.href = `article.html?id=${article.id}`;
+    }
+  });
+  
+  function performSearch(query) {
+    const results = searchArticles(query);
+    currentResults = results;
+    
+    if (results.length === 0) {
+      searchResults.innerHTML = `
+        <div class="search-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+          <p>未找到相关文章</p>
+        </div>
+      `;
+      return;
+    }
+    
+    renderSearchResults(results, query);
+  }
+  
+  function renderSearchResults(results, query) {
+    const fragment = document.createDocumentFragment();
+    
+    results.forEach((article, index) => {
+      const item = document.createElement('div');
+      item.className = 'search-result-item';
+      item.setAttribute('data-index', index);
+      
+      const categoryInfo = getCategoryInfo(article.category);
+      const placeholderSvg = generatePlaceholderSvg(categoryInfo.name, article.category);
+      
+      item.innerHTML = `
+        <div class="search-result-cover">
+          <img src="${article.cover}" alt="${article.title}" onerror="this.onerror=null;this.src='${placeholderSvg}'" />
+        </div>
+        <div class="search-result-info">
+          <div class="search-result-title">${highlightText(article.title, query)}</div>
+          <div class="search-result-excerpt">${highlightText(article.excerpt, query)}</div>
+          <div class="search-result-meta">
+            <span class="category-badge" data-cat="${article.category}">${categoryInfo.name}</span>
+            <span>${formatDate(article.date)}</span>
+          </div>
+        </div>
+      `;
+      
+      item.addEventListener('click', () => {
+        window.location.href = `article.html?id=${article.id}`;
+      });
+      
+      fragment.appendChild(item);
+    });
+    
+    searchResults.innerHTML = '';
+    searchResults.appendChild(fragment);
+  }
+  
+  function updateActiveResult() {
+    searchResults.querySelectorAll('.search-result-item').forEach((item, index) => {
+      item.classList.toggle('active', index === activeIndex);
+    });
+    
+    // 滚动到可视区域
+    if (activeIndex >= 0) {
+      const activeItem = searchResults.querySelector(`[data-index="${activeIndex}"]`);
+      if (activeItem) {
+        activeItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  }
+  
+  // 关键词高亮
+  function highlightText(text, query) {
+    if (!query) return text;
+    const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+    return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+  }
+  
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+}
+
 // ==================== 页面过渡动画 ====================
 
 function initPageTransitions() {
@@ -582,6 +748,9 @@ function initPageTransitions() {
 document.addEventListener('DOMContentLoaded', () => {
   // 初始化导航栏
   initNavbar();
+
+  // 初始化搜索
+  initSearch();
 
   // 初始化返回顶部
   initScrollTop();

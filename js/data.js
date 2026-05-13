@@ -254,13 +254,15 @@ function getCategoryInfo(category) {
   return CATEGORIES[category] || CATEGORIES.all;
 }
 
-// 搜索文章
+// 搜索文章（优化版：支持标题、摘要和分类名称搜索）
 function searchArticles(query) {
   const lowerQuery = query.toLowerCase();
-  return ARTICLES.filter(article => 
-    article.title.toLowerCase().includes(lowerQuery) ||
-    article.excerpt.toLowerCase().includes(lowerQuery)
-  );
+  return ARTICLES.filter(article => {
+    const categoryInfo = getCategoryInfo(article.category);
+    return article.title.toLowerCase().includes(lowerQuery) ||
+           article.excerpt.toLowerCase().includes(lowerQuery) ||
+           categoryInfo.name.toLowerCase().includes(lowerQuery);
+  });
 }
 
 // 导出数据（兼容不同环境）
