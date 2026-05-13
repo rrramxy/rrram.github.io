@@ -500,13 +500,26 @@ button {
   color: #fff;
 }
 
+/* art 分类样式（已禁用，保留用于未来恢复） */
+/*
 .category-badge[data-cat="art"] {
   background: rgba(6, 182, 212, 0.85);
   color: #fff;
 }
+*/
 
 .category-badge[data-cat="tech"] {
   background: rgba(99, 102, 241, 0.85);
+  color: #fff;
+}
+
+.category-badge[data-cat="sports"] {
+  background: rgba(6, 182, 212, 0.85);
+  color: #fff;
+}
+
+.category-badge[data-cat="news"] {
+  background: rgba(245, 158, 11, 0.85);
   color: #fff;
 }
 
@@ -589,8 +602,10 @@ button {
 .category-ai::before { background: linear-gradient(90deg, #10b981, #34d399); }
 .category-game::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
 .category-music::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
-.category-art::before { background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); }
+/* .category-art::before { background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); } */
 .category-tech::before { background: linear-gradient(90deg, var(--primary), var(--primary-light)); }
+.category-sports::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.category-news::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
 
 .category-icon {
   display: inline-flex;
@@ -605,8 +620,10 @@ button {
 .category-ai .category-icon { background: rgba(16, 185, 129, 0.1); color: #10b981; }
 .category-game .category-icon { background: rgba(244, 63, 94, 0.1); color: #f43f5e; }
 .category-music .category-icon { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
-.category-art .category-icon { background: rgba(6, 182, 212, 0.1); color: var(--secondary); }
+/* .category-art .category-icon { background: rgba(6, 182, 212, 0.1); color: var(--secondary); } */
 .category-tech .category-icon { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
+.category-sports .category-icon { background: rgba(6, 182, 212, 0.1); color: #06b6d4; }
+.category-news .category-icon { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
 
 .category-card h3 {
   font-size: 1.25rem;

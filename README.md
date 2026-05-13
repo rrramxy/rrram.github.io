@@ -21,7 +21,7 @@
 | AI | Emerald (#10b981) | 人工智能、机器学习 |
 | 游戏 (game) | Rose (#f43f5e) | 游戏开发、设计 |
 | 音乐 (music) | Violet (#8b5cf6) | 音乐创作、欣赏 |
-| 艺术 (art) | Cyan (#06b6d4) | 创意表达、美学探索 |
+| 体育 (sports) | Cyan (#06b6d4) | 超越极限、友谊第一 |
 
 ## 📁 项目结构
 
@@ -53,7 +53,7 @@
 1. 克隆仓库：
 
 ```bash
-git clone https://github.com/yourusername/hot-site.git
+git clone https://github.com/rrramxy/rrramxy.github.io.git
 cd hot-site
 ```
 
@@ -61,14 +61,10 @@ cd hot-site
 
 ```bash
 # 使用 Python
-python -m http.server 8080
+python3 -m http.server 8080
 
 # 使用 Node.js (npx)
 npx serve .
-
-# 使用 PHP
-php -S localhost:8080
-```
 
 3. 浏览器访问 `http://localhost:8080`
 
@@ -82,7 +78,7 @@ php -S localhost:8080
 git init
 git add .
 git commit -m "feat: 初始化 Hot-Site"
-git remote add origin https://github.com/yourusername/hot-site.git
+git remote add origin https://github.com/rrramxy/rrramxy.github.io.git
 git push -u origin main
 ```
 
@@ -93,7 +89,7 @@ git push -u origin main
    - Branch 选择 **main**，目录选 **/ (root)**
    - 点击 **Save**
 
-3. 等待部署完成，访问 `https://yourusername.github.io/hot-site/`
+3. 等待部署完成，访问 `https://rrramxy.github.io/hot-site/`
 
 ## 📝 添加新文章
 

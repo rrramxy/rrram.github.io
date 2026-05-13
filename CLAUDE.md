@@ -28,7 +28,6 @@
    ```bash
    python -m http.server 8080
    ```
-
    - 浏览器访问 `http://localhost:8080`
    - 更大的项目可以使用 `npx serve .` 或 `npm install -g serve`（如需）
 
@@ -45,9 +44,10 @@
 - 修改网站设计时，请更新 CSS 变量并在 `css/style.css` 中覆盖（所有变量导出至 `:root`）
 - 添加新文章时，请在 `content/articles/` 下创建新 Markdown 文件，并更新 `js/data.js` 的 `ARTICLES` 数组
 
-## 🌐 语言偏好
+## 🌐 习惯偏好
 
-所有 Claude 代理应使用中文进行交互和输出，以保证中文用户的使用体验。
+- 所有 Claude 代理应使用中文进行交互和输出，以保证中文用户的使用体验
+- 自主运行错误3次就不再测试，整理总结问题并输出
 
 ## 💡 其他说明
 
